@@ -14,7 +14,7 @@ export const getHomePageVideos = createAsyncThunk(
     const {
       youtubeApp: {nextPageToken: nextPageTokenFromState, videos},
     } = getState() as RootState;
-    const {data: {items, nextPageToken}} = await axios.get(`${YOUTUBE_API_URL}/search?key=${API_KEY}&maxResults=20&q='comedy skits'&part=snippet&type=video&${isNext ? `pageToken=${nextPageTokenFromState}` : ''}`);
+    const {data: {items, nextPageToken}} = await axios.get(`${YOUTUBE_API_URL}/search?key=${API_KEY}&maxResults=20&q='nigeria comedy skits'&part=snippet&type=video&${isNext ? `pageToken=${nextPageTokenFromState}` : ''}`);
     const parsedData: HomePageVideos[] = await parseData(items);
     return { parsedData: [...videos, ...parsedData], nextPageToken }
   }
